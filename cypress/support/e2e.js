@@ -15,6 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import 'cypress-file-upload';
+
 
 //disable fetch and xhr  
 const app = window.top;

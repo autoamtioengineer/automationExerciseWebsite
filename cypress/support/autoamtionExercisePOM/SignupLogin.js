@@ -10,6 +10,9 @@ class SignupLogin {
     getSignupButton() {
         return cy.get('[data-qa="signup-button"]')
     }
+
+
+    
 }
 
 export default SignupLogin;

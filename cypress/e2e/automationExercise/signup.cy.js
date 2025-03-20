@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 import SignupLogin from '../../support/autoamtionExercisePOM/SignupLogin';
-import AccountCreation from '../../support/autoamtionExercisePOM/accountCreation';
+import AccountCreation from '../../support/autoamtionExercisePOM/AccountCreation';
 import AccountDeletion from '../../support/autoamtionExercisePOM/AccountDeletion';
 describe('Register User', () => {
     const signupLogin = new SignupLogin();
