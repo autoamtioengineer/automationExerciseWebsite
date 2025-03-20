@@ -1,10 +1,8 @@
 ///<reference types="cypress"/>
-import ProductsPage from '../../support/autoamtionExercisePOM/ProductsPage';
 import CartPage from '../../support/autoamtionExercisePOM/CartPage'
 import AccountDeletion from '../../support/autoamtionExercisePOM/AccountDeletion';
 import CheckoutPage from '../../support/autoamtionExercisePOM/CheckoutPage'
 import PaymentPage from '../../support/autoamtionExercisePOM/PaymentPage';
-const productsPage = new ProductsPage();
 const cartPage = new CartPage();
 const accountDeletion = new AccountDeletion();
 const checkout = new CheckoutPage();
@@ -48,32 +46,24 @@ describe('Place Order', () => {
         accountDeletion.deleteAndVerifyAccount();
      });
      it('Test Case 15: Place Order: Register before Checkout', () => {
-    
         // Step 4-5: Signup / Create Account
         cy.contains('Signup / Login').click()
         cy.registerNewUser('Ali');  // User is register by using  Custom command
         // Step 8: Add products to cart (Custom Command)
         cy.addProductsToCart();
-    
         // Step 9-11: Go to cart and checkout
         cy.contains('Proceed To Checkout').click();
-    
         // Step 12: Address Details & Review Order
         cy.contains('Address Details').should('be.visible');
         cy.contains('Review Your Order').should('be.visible');
-    
         // Step 13: Comment & Place Order
         cy.get('textarea[name="message"]').type('Please deliver ASAP.');
         cy.contains('Place Order').click();
-    
         // Step 14-15: Payment
         payment.fillPaymentDetails('Ali', '1234123412341234', '123', '12', '2026');
-        
-    
         // Step 16: Verify Order success
         payment.confirmOrder();
         payment.verifyOrderSuccess();
-    
         // Step 17-18: Delete Account
         accountDeletion.deleteAndVerifyAccount();
       });
