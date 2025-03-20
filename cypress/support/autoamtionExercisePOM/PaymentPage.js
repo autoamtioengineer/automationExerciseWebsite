@@ -13,7 +13,7 @@ class PaymentPage {
 
     verifyOrderSuccess() {
         cy.get('.col-sm-9 > p').should('contain.text',"Congratulations! Your order has been confirmed!").and('be.visible')
-        //cy.contains('Your order has been placed successfully!').should('be.visible');
+       
     }
 }
 export default PaymentPage;

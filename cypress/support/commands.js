@@ -63,9 +63,6 @@ Cypress.Commands.add('registerNewUser', (name) => {
 
     // Verify Logged in
     cy.contains('Logged in as').should('be.visible');
-
-
-
 });
 
 // Custom Command for addingin products to Cart 
