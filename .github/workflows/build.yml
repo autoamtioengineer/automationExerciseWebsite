@@ -1,4 +1,4 @@
-name: Cypress E2E Tests
+name: Cypress E2E Tests with Report
 
 on:
   push:
@@ -23,16 +23,13 @@ jobs:
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci  # Faster and cleaner for CI environments
+        run: npm ci
 
-      - name: Verify Cypress Installation
-        run: npx cypress verify  # Verify Cypress binary
+      - name: Run Cypress Tests with Mochawesome Reporter
+        run: npx cypress run
 
-      - name: Run Cypress Tests
-        run: npx cypress run  # Run Cypress tests
-
-      - name: Upload Cypress Videos/Results (Optional)
+      - name: Upload Mochawesome Report
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-result
-          path: cypress/videos
+          name: mochawesome-report
+          path: cypress/reports/
