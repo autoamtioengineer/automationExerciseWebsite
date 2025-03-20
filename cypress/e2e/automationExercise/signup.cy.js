@@ -59,12 +59,6 @@ describe('Register User', () => {
         // Step 18: Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
         cy.contains('Account Deleted!').should('be.visible');
         accountDeletion.verifyAccountDeleted();
-         
-        
-          
-        
-        
-    
     });
     
     it.only('Should show an error message when a duplicate email is used', () => {
